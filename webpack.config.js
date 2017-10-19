@@ -1,0 +1,30 @@
+module.exports = {
+	entry: './src/index.js',
+		output: {
+			path: __dirname + '/build',
+			filename: 'app.bundle.js'
+		},
+	module: {
+		rules: [
+			{
+				test: /\.js$/,
+				loader: "babel-loader",
+				options: {
+					presets: ['es2015']
+				}
+			},
+			{
+				test: /\.css$/,
+				use: [
+					{ loader: 'style-loader'},
+					{
+						loader: 'css-loader',
+						options: {
+							modules: true
+						}
+					}
+				]
+			}
+		]
+	}
+};
